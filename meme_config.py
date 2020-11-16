@@ -5,5 +5,6 @@ REGEX_TO_MEME = {
    ".*pog.*" : "faker.mp3",
    ".*penta.*" : "penta.mp3",
    ".*quadra.*" : "quadra.mp3",
-   ".*(mission failed|gg).*" : "missionfailed.mp3"
+   ".*(mission failed|gg).*" : "missionfailed.mp3",
+   ".*bababooey.*" : "bababooey.mp3"
 }
