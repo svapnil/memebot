@@ -13,3 +13,6 @@ Memes can be added to the `meme_config.py` file on the `REGEX_TO_MEME` variable.
 These programs are necessary to do audio encoding that we display in Discord:
 `opus`
 `ffmpeg`
+
+Follow this tutorial to get discord *and it's related voice commands* based off this documentation:
+https://pypi.org/project/discord.py/
