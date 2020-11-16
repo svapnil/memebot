@@ -2,11 +2,7 @@ from discord import VoiceChannel
 import discord
 import re
 import asyncio
-
-REGEX_TO_MEME = {
-   ".*(barber|holy smokes).*" : "shoutoutbarber.mp3",
-   ".*big (dog|dawg).*" : "whatupbigdawgs.mp3"
-}
+from meme_config import REGEX_TO_MEME
 
 class MemePlayer:
     @staticmethod
