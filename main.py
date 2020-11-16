@@ -1,8 +1,7 @@
 import discord
-import asyncio
 import ctypes.util
 import os
-import re
+from meme import MemePlayer
 
 def load_opus():
     if not discord.opus.is_loaded():
@@ -19,19 +18,10 @@ class MemeBotClient(discord.Client):
         if message.author == self.user:
             return
 
-        if re.search(".*(barber|holy smokes).*", message.content):
-            guild = message.guild
-            # expect there to be atleast one voice channel 
-            channel = guild.voice_channels[1]
-            # for vc in guild.voice_channels:
-            #    if len(vc.members) > len(channel.members):
-            #         channel = vc
-            voice = await channel.connect()
-            audio = discord.FFmpegPCMAudio("shoutoutbarber.mp3")
-            voice.play(audio)
-            while(voice.is_playing()):
-                await asyncio.sleep(1)
-            await voice.disconnect()
+        guild = message.guild
+        # making the assumption that users are in the first channel
+        channel = guild.voice_channels[0]
+        await MemePlayer.play_meme(channel, message.content)
         
 load_opus()
 client = MemeBotClient()
@@ -40,3 +30,6 @@ client.run(DISCORD_BOT_TOKEN)
 
 # Code Dump:
 # await message.channel.send("shoutout to my barber " + str(message.author.nick), tts=True)
+# for vc in guild.voice_channels:
+#    if len(vc.members) > len(channel.members):
+#         channel = vc
