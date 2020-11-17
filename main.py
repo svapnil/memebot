@@ -1,4 +1,5 @@
 import discord
+from discord import Member
 import ctypes.util
 import os
 from meme import MemePlayer
@@ -17,11 +18,8 @@ class MemeBotClient(discord.Client):
         # don't respond to ourselves
         if message.author == self.user:
             return
-
-        guild = message.guild
-        # making the assumption that users are in the first channel
-        channel = guild.voice_channels[0]
-        await MemePlayer.play_meme(channel, message.content)
+        
+        await MemePlayer.play_meme(message)
         
 load_opus()
 client = MemeBotClient()
