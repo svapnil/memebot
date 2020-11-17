@@ -1,10 +1,10 @@
 REGEX_TO_MEME = {
-   ".*(barber|holy smokes).*" : "shoutoutbarber.mp3",
-   ".*big (dog|dawg).*" : "whatupbigdawgs.mp3",
-   ".*best friends?.*" : "twoprettybestfriends.mp3",
-   ".*pog.*" : "faker.mp3",
-   ".*penta.*" : "penta.mp3",
-   ".*quadra.*" : "quadra.mp3",
-   ".*(mission failed|gg).*" : "missionfailed.mp3",
-   ".*bababooey.*" : "bababooey.mp3"
+   ".*(barber|holy smokes).*" : "clips/shoutoutbarber.mp3",
+   ".*big (dog|dawg).*" : "clips/whatupbigdawgs.mp3",
+   ".*best friends?.*" : "clips/twoprettybestfriends.mp3",
+   ".*pog.*" : "clips/faker.mp3",
+   ".*penta.*" : "clips/penta.mp3",
+   ".*quadra.*" : "clips/quadra.mp3",
+   ".*(mission failed|gg).*" : "clips/missionfailed.mp3",
+   ".*bababooey.*" : "clips/bababooey.mp3"
 }
