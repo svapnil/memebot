@@ -2,29 +2,18 @@ import discord
 from discord import Member
 import ctypes.util
 import os
-from meme import MemePlayer
+from meme_bot_client import MemeBotClient
 
 def load_opus():
     if not discord.opus.is_loaded():
         opus_path = ctypes.util.find_library("opus")
         discord.opus.load_opus(opus_path)
 
-
-class MemeBotClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as', self.user)
-
-    async def on_message(self, message):
-        # don't respond to ourselves
-        if message.author == self.user:
-            return
-        
-        await MemePlayer.play_meme(message)
-        
-load_opus()
-client = MemeBotClient()
-DISCORD_BOT_TOKEN = os.environ['DISCORD_BOT_TOKEN']
-client.run(DISCORD_BOT_TOKEN)
+if __name__ == "__main__":
+    load_opus()
+    client = MemeBotClient()
+    DISCORD_BOT_TOKEN = os.environ['DISCORD_BOT_TOKEN']
+    client.run(DISCORD_BOT_TOKEN)
 
 # Code Dump:
 # await message.channel.send("shoutout to my barber " + str(message.author.nick), tts=True)
