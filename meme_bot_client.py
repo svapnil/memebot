@@ -12,7 +12,7 @@ class MemeBotClient(discord.Client):
         try:
             await MemePlayer.play_meme(message)
         except discord.errors.ClientException:
-            await message.channel.send("Slow down neighbor")
+            await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
         except Exception as e:
             print(e)
         
