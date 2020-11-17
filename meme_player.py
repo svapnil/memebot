@@ -11,7 +11,7 @@ class MemePlayer:
         memehelp = "" 
         if message.content == '/memehelp':
             for key, value in REGEX_TO_MEME.items():
-                memehelp = memehelp + key + "\n"
+                memehelp = memehelp + key[2:-2].replace('|',' or ') + "\n"
             await message.channel.send(memehelp)
 
         for regex, sound_url in REGEX_TO_MEME.items():

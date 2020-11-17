@@ -11,6 +11,8 @@ class MemeBotClient(discord.Client):
             return
         try:
             await MemePlayer.play_meme(message)
-        except:
+        except discord.errors.ClientException:
             await message.channel.send("Slow down neighbor")
+        except Exception as e:
+            print(e)
         
