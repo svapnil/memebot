@@ -16,3 +16,18 @@ These programs are necessary to do audio encoding that we display in Discord:
 
 Follow this tutorial to get discord *and it's related voice commands* based off this documentation:
 https://pypi.org/project/discord.py/
+
+
+Mac Guide:
+
+`python3 -m pip install -U "discord.py[voice]"`
+`brew install opus`
+`brew install ffmpeg`
+
+If certificate error: 
+Navigate to you Python folder and run this command:
+`./Install Certificates.command`
+
+Linux Guide: 
+
+Soon

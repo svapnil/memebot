@@ -9,6 +9,8 @@ class MemeBotClient(discord.Client):
         # don't respond to ourselves
         if message.author == self.user:
             return
-        
-        await MemePlayer.play_meme(message)
+        try:
+            await MemePlayer.play_meme(message)
+        except:
+            await message.channel.send("Slow down neighbor")
         
