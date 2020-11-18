@@ -17,6 +17,7 @@ class MemeBotClient(discord.Client):
             for regex,_ in REGEX_TO_MEME.items():
                 memehelp = memehelp + regex[2:-2].replace('|',' or ') + "\n"
             await message.channel.send(memehelp)
+            print("Outputting Meme Help")
             return
         
         # look for a meme to play
@@ -24,6 +25,7 @@ class MemeBotClient(discord.Client):
             await MemePlayer.play_meme(message)
         except discord.errors.ClientException:
             await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
+            print("Voice channel already active, asking user to slow down")
         except Exception as e:
             print(e)
         

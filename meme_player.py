@@ -21,6 +21,7 @@ class MemePlayer:
                 voice = await channel.connect()
                 audio = discord.FFmpegPCMAudio(sound_url)
                 voice.play(audio)
+                print(f'Playing {regex}')
                 while(voice.is_playing()):
                     await asyncio.sleep(1)
                 await voice.disconnect()
