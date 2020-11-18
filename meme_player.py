@@ -8,8 +8,14 @@ class MemePlayer:
     @staticmethod
     async def play_meme(message: Message):
         content = message.content
+        memehelp = "" 
+        if message.content == '/memehelp':
+            for key, value in REGEX_TO_MEME.items():
+                memehelp = memehelp + key[2:-2].replace('|',' or ') + "\n"
+            await message.channel.send(memehelp)
+
         for regex, sound_url in REGEX_TO_MEME.items():
-            if re.search(regex, content):
+            if re.search(regex, content.lower()):
                 channel = None
                 if isinstance(message.author, Member): 
                     if message.author.voice and message.author.voice.channel:

@@ -9,6 +9,10 @@ class MemeBotClient(discord.Client):
         # don't respond to ourselves
         if message.author == self.user:
             return
-        
-        await MemePlayer.play_meme(message)
+        try:
+            await MemePlayer.play_meme(message)
+        except discord.errors.ClientException:
+            await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
+        except Exception as e:
+            print(e)
         
