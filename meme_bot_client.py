@@ -28,6 +28,7 @@ class MemeBotClient(discord.Client):
                 await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
                 print("Voice channel already active, asking user to slow down")
             else:
+                await message.channel.send("I\'m kinda confused right now bruh")
                 print(f'Unknown ClientExceptionError: {ce}')
         except Exception as e:
             await message.channel.send("I\'m kinda confused right now bruh")
