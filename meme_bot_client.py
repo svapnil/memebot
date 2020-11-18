@@ -23,9 +23,13 @@ class MemeBotClient(discord.Client):
         # look for a meme to play
         try:
             await MemePlayer.play_meme(message)
-        except discord.errors.ClientException:
-            await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
-            print("Voice channel already active, asking user to slow down")
+        except discord.errors.ClientException as ce:
+            if str(ce) == "Already connected to a voice channel.":
+                await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
+                print("Voice channel already active, asking user to slow down")
+            else:
+                print(f'Unknown ClientExceptionError: {ce}')
         except Exception as e:
-            print(e)
+            await message.channel.send("I\'m kinda confused right now bruh")
+            print(f'Unknown Exception occured: {e}')
         
