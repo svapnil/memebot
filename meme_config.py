@@ -7,5 +7,7 @@ REGEX_TO_MEME = {
    ".*quadra.*" : "clips/quadra.mp3",
    "(^gg$|.*mission failed.*)" : "clips/missionfailed.mp3",
    ".*bababooey.*" : "clips/bababooey.mp3",
-   ".*oof.*" : "clips/oof.mp3"
+   ".*oof.*" : "clips/oof.mp3",
+   ".*shit.*": "clips/awshit.mp3",
+   ".*calm down.*" : "clips/calm_down.mp3"
 }
