@@ -14,7 +14,7 @@ class MemeBotClient(discord.Client):
         
         # print manual of all possible regexes
         if message.content == '/memehelp':
-            memehelp = ""
+            memehelp = "**Messages that will play audio clips:**\n"
             for regex,_ in REGEX_TO_MEME.items():
                 regex = regex[2:-2].replace('|',' or ')
                 pattern = re.compile('[^a-zA-Z\d\s\)\()]')
