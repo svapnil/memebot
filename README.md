@@ -18,16 +18,48 @@ Follow this tutorial to get discord *and it's related voice commands* based off 
 https://pypi.org/project/discord.py/
 
 
+You will need two environment variables:
+
+`DISCORD_BOT_TOKEN`
+
+`RIOT_API_KEY`
+
 Mac Guide:
 
 `python3 -m pip install -U "discord.py[voice]"`
+
 `brew install opus`
+
 `brew install ffmpeg`
+
+`pip3 install cassiopeia`
+
 
 If certificate error: 
 Navigate to you Python folder and run this command:
 `./Install Certificates.command`
 
-Linux Guide: 
+Launching on AMAZON-EC2 Linux Guide: 
 
-Soon
+`sudo python3 -m pip install -U "discord.py[voice]"`
+
+`sudo yum install opus`
+
+Follow Instructions here to install `ffmpeg`:
+
+https://maskaravivek.medium.com/how-to-install-ffmpeg-on-ec2-running-amazon-linux-451e4a8e2694
+
+`pip3 install cassiopeia`
+
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
+
+`. ~/.nvm/nvm.sh`
+
+`nvm install node`
+
+`npm install pm2@latest -g`
+
+`pm2 start main.py -interprete python3`
+
+
+
