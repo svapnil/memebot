@@ -2,6 +2,7 @@ import discord
 from meme_player import MemePlayer
 from meme_config import REGEX_TO_MEME
 import re
+from cassiopeia import Summoner
 
 class MemeBotClient(discord.Client):
     async def on_ready(self):
@@ -11,6 +12,15 @@ class MemeBotClient(discord.Client):
         # don't respond to ourselves
         if message.author == self.user:
             return
+
+        if re.search("/bestchamps (.*)", message.content):
+            summoner_name = message.content[12:]
+            bestchamps_message ="**Best champs for " + summoner_name + ":**\n"
+            summoner = Summoner(name=summoner_name, region="NA")
+            good_with = summoner.champion_masteries.filter(lambda cm: cm.level >=5)
+            bestchamps_message += ", ".join([cm.champion.name for cm in good_with])
+            await message.channel.send(bestchamps_message)
+            print("Outputting Best Champ")
         
         # print manual of all possible regexes
         if message.content == '/memehelp':
