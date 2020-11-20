@@ -24,7 +24,7 @@ You will need two environment variables:
 
 `RIOT_API_KEY`
 
-###Mac Guide:
+### Mac Guide:
 
 `python3 -m pip install -U "discord.py[voice]"`
 
@@ -39,7 +39,7 @@ If certificate error:
 Navigate to you Python folder and run this command:
 `./Install Certificates.command`
 
-###Launching on AMAZON-EC2 Linux Guide: 
+### Launching on AMAZON-EC2 Linux Guide: 
 
 `sudo python3 -m pip install -U "discord.py[voice]"`
 
