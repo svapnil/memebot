@@ -13,5 +13,5 @@ REGEX_TO_MEME = {
    ".*pierre.*" : "clips/yo-pierre.mp3",
    ".*perfect.*" : "clips/perfect.mp3",
    ".*pirate.*" : "clips/pirate.mp3",
-   ".*[mM]ario [jJ]udah.*" : "clips/whereismariojudah.mp3"
+   ".*mario judah.*" : "clips/whereismariojudah.mp3"
 }
