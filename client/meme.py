@@ -2,7 +2,7 @@ from discord import VoiceChannel, Message, Member
 import discord
 import re
 import asyncio
-from meme_config import REGEX_TO_MEME
+from .config.meme import REGEX_TO_MEME
 
 class MemeClient:
     @staticmethod
