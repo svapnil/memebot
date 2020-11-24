@@ -24,7 +24,7 @@ class MemeBotClient(discord.Client):
 
         # display manual of all possible regexes
         if message.content == '/memehelp':
-            await MemeClient.display_meme_help()
+            await MemeClient.display_meme_help(message)
 
         # look for a meme to play
         try:
