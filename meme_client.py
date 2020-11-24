@@ -4,7 +4,7 @@ import re
 import asyncio
 from meme_config import REGEX_TO_MEME
 
-class MemePlayer:
+class MemeClient:
     @staticmethod
     async def play_meme(message: Message):
         content = message.content
