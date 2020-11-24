@@ -28,7 +28,7 @@ class MemeClient:
                 break
 
     @staticmethod
-    async def display_meme_help():
+    async def display_meme_help(message: Message):
         memehelp = "**Messages that will play audio clips:**\n"
         for regex,_ in REGEX_TO_MEME.items():
             regex = regex[2:-2].replace('|',' or ')
