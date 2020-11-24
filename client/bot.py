@@ -1,7 +1,7 @@
 import discord
-from meme_client import MemeClient
+from .meme import MemeClient
 from meme_config import REGEX_TO_MEME
-from league_client import LeagueClient
+from .league import LeagueClient
 from cassiopeia import Summoner
 import re
 

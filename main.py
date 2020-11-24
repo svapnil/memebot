@@ -2,7 +2,7 @@ import discord
 from discord import Member
 import ctypes.util
 import os
-from meme_bot_client import MemeBotClient
+from client.bot import MemeBotClient
 
 def load_opus():
     if not discord.opus.is_loaded():
