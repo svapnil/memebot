@@ -1,9 +1,10 @@
 import discord
-from meme_player import MemePlayer
+from meme_client import MemeClient
 from meme_config import REGEX_TO_MEME
 from league_client import LeagueClient
 from cassiopeia import Summoner
 import re
+
 class MemeBotClient(discord.Client):
     async def on_ready(self):
         print('Logged on as', self.user)
@@ -41,7 +42,7 @@ class MemeBotClient(discord.Client):
         
         # look for a meme to play
         try:
-            await MemePlayer.play_meme(message)
+            await MemeClient.play_meme(message)
         except discord.errors.ClientException as ce:
             if str(ce) == "Already connected to a voice channel.":
                 await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
