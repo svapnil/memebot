@@ -3,7 +3,7 @@ from client.meme import MemeClient
 
 REGEX_TO_FUNCTION = {
     # display summary of most recent game
-    "/gamessummary (.*)" : LeagueClient.display_game_summary,
+    "/gamesummary (.*)" : LeagueClient.display_game_summary,
     # display best champs for a champion
     "/bestchamps (.*)" : LeagueClient.display_best_champs,
     # display manual of all possible regexes
