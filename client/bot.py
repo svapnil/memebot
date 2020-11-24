@@ -14,21 +14,18 @@ class MemeBotClient(discord.Client):
         if message.author == self.user:
             return
 
-        # display summary of most recent game
-        if re.search("/gamesummary (.*)", message.content):
-            await LeagueClient.display_game_summary(message)
-
-        # display best champs for a champion
-        if re.search("/bestchamps (.*)", message.content):
-            await LeagueClient.display_best_champs(message)
-
-        # display manual of all possible regexes
-        if message.content == '/memehelp':
-            await MemeClient.display_meme_help(message)
-
-        # look for a meme to play
         try:
-            await MemeClient.play_meme(message)
+            # display summary of most recent game
+            if re.search("/gamesummary (.*)", message.content):
+                await LeagueClient.display_game_summary(message)
+            # display best champs for a champion
+            elif re.search("/bestchamps (.*)", message.content):
+                await LeagueClient.display_best_champs(message)
+            # display manual of all possible regexes
+            elif message.content == '/memehelp':
+                await MemeClient.display_meme_help(message)
+            else:
+                await MemeClient.play_meme(message)
         except discord.errors.ClientException as ce:
             if str(ce) == "Already connected to a voice channel.":
                 await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
