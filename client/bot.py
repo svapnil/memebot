@@ -1,6 +1,7 @@
 import discord
 from .meme import MemeClient
 from .config.meme import REGEX_TO_MEME
+from .config.bot import REGEX_TO_FUNCTION
 from .league import LeagueClient
 from cassiopeia import Summoner
 import re
@@ -15,17 +16,9 @@ class MemeBotClient(discord.Client):
             return
 
         try:
-            # display summary of most recent game
-            if re.search("/gamesummary (.*)", message.content):
-                await LeagueClient.display_game_summary(message)
-            # display best champs for a champion
-            elif re.search("/bestchamps (.*)", message.content):
-                await LeagueClient.display_best_champs(message)
-            # display manual of all possible regexes
-            elif message.content == '/memehelp':
-                await MemeClient.display_meme_help(message)
-            else:
-                await MemeClient.play_meme(message)
+            for regex, function in REGEX_TO_FUNCTION.items():
+                if re.search(regex, message.content.lower()):
+                    await function(message)
         except discord.errors.ClientException as ce:
             if str(ce) == "Already connected to a voice channel.":
                 await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
