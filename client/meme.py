@@ -26,3 +26,15 @@ class MemeClient:
                     await asyncio.sleep(1)
                 await voice.disconnect()
                 break
+
+    @staticmethod
+    async def display_meme_help():
+        memehelp = "**Messages that will play audio clips:**\n"
+        for regex,_ in REGEX_TO_MEME.items():
+            regex = regex[2:-2].replace('|',' or ')
+            pattern = re.compile('[^a-zA-Z\d\s\)\()]')
+            regex = re.sub(pattern,'',regex)
+            memehelp = memehelp + regex + "\n"
+            
+        await message.channel.send(memehelp)
+        print("Outputting Meme Help")

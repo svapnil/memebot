@@ -14,32 +14,18 @@ class MemeBotClient(discord.Client):
         if message.author == self.user:
             return
 
-
+        # display summary of most recent game
         if re.search("/gamesummary (.*)", message.content):
-           await LeagueClient.display_game_summary(message)
+            await LeagueClient.display_game_summary(message)
 
+        # display best champs for a champion
         if re.search("/bestchamps (.*)", message.content):
-            summoner_name = message.content[12:]
-            bestchamps_message ="**Best champs for " + summoner_name + ":**\n"
-            summoner = Summoner(name=summoner_name, region="NA")
-            good_with = summoner.champion_masteries.filter(lambda cm: cm.level >=5)
-            bestchamps_message += ", ".join([cm.champion.name for cm in good_with])
-            await message.channel.send(bestchamps_message)
-            print("Outputting Best Champ")
-        
-        # print manual of all possible regexes
+            await LeagueClient.display_best_champs(message)
+
+        # display manual of all possible regexes
         if message.content == '/memehelp':
-            memehelp = "**Messages that will play audio clips:**\n"
-            for regex,_ in REGEX_TO_MEME.items():
-                regex = regex[2:-2].replace('|',' or ')
-                pattern = re.compile('[^a-zA-Z\d\s\)\()]')
-                regex = re.sub(pattern,'',regex)
-                memehelp = memehelp + regex + "\n"
-                
-            await message.channel.send(memehelp)
-            print("Outputting Meme Help")
-            return
-        
+            await MemeClient.display_meme_help()
+
         # look for a meme to play
         try:
             await MemeClient.play_meme(message)
