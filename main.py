@@ -14,9 +14,3 @@ if __name__ == "__main__":
     client = MemeBotClient()
     DISCORD_BOT_TOKEN = os.environ['DISCORD_BOT_TOKEN']
     client.run(DISCORD_BOT_TOKEN)
-
-# Code Dump:
-# await message.channel.send("shoutout to my barber " + str(message.author.nick), tts=True)
-# for vc in guild.voice_channels:
-#    if len(vc.members) > len(channel.members):
-#         channel = vc
