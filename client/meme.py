@@ -8,7 +8,7 @@ class MemeClient:
     @staticmethod
     async def play_meme(message: Message):
         content = message.content
-        for regex, sound_url in REGEX_TO_MEME.items():
+        for regex, meme in REGEX_TO_MEME.items():
             if re.search(regex, content.lower()):
                 channel = None
                 if isinstance(message.author, Member): 
@@ -19,7 +19,7 @@ class MemeClient:
                         await message.channel.send(f'You\'re not in a Discord channel neighbor {name}!')             
                         return
                 voice = await channel.connect()
-                audio = discord.FFmpegPCMAudio(sound_url)
+                audio = discord.FFmpegPCMAudio(meme.clip_url)
                 voice.play(audio)
                 print(f'Playing {regex}')
                 while(voice.is_playing()):
