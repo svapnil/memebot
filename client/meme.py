@@ -1,8 +1,8 @@
+from config.meme import REGEX_TO_MEME
 from discord import VoiceChannel, Message, Member
 import discord
 import re
 import asyncio
-from config.meme import REGEX_TO_MEME
 
 class MemeClient:
     @staticmethod
@@ -19,7 +19,7 @@ class MemeClient:
                         await message.channel.send(f'You\'re not in a Discord channel neighbor {name}!')             
                         return
                 voice = await channel.connect()
-                audio = discord.FFmpegPCMAudio(meme.clip_url)
+                audio = meme.audio
                 voice.play(audio)
                 print(f'Playing {regex}')
                 while(voice.is_playing()):
@@ -29,12 +29,16 @@ class MemeClient:
 
     @staticmethod
     async def display_meme_help(message: Message):
-        memehelp = "**Messages that will play audio clips:**\n"
-        for regex,_ in REGEX_TO_MEME.items():
-            regex = regex[2:-2].replace('|',' or ')
-            pattern = re.compile('[^a-zA-Z\d\s\)\()]')
-            regex = re.sub(pattern,'',regex)
-            memehelp = memehelp + regex + "\n"
+        memehelp = "*Messages that will play audio clips:*\n\n"
+        for regex,meme in REGEX_TO_MEME.items():
+            title = meme.title
+            desc = regex[2:-2].replace('|',' or ')
+            pattern = re.compile(r'[^a-zA-Z\d\s\)\()]')
+            regex = re.sub(pattern,'',desc)
+            if title:
+                memehelp += f'**{title}:** {desc}\n'
+            else:
+                memehelp += f'{desc}\n'
             
         await message.channel.send(memehelp)
         print("Outputting Meme Help")

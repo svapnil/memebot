@@ -1,10 +1,10 @@
 from discord import FFmpegPCMAudio
 
 class Meme:
-    def __init__(self, clip_url: str, help_text=None):
+    def __init__(self, clip_url: str, title: str = None):
         self.clip_url = clip_url
-        self.help_text = help_text
+        self.title = title
 
     @property
     def audio(self):
-        FFmpegPCMAudio(self.clip_url)
+        return FFmpegPCMAudio(self.clip_url)
