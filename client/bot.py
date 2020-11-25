@@ -1,7 +1,7 @@
 import discord
 from .meme import MemeClient
 from .config.meme import REGEX_TO_MEME
-from .config.bot import REGEX_TO_FUNCTION
+from .config.bot import REGEX_TO_ACTION
 from .league import LeagueClient
 from cassiopeia import Summoner
 import re
@@ -16,9 +16,9 @@ class MemeBotClient(discord.Client):
             return
 
         try:
-            for regex, function in REGEX_TO_FUNCTION.items():
+            for regex, action in REGEX_TO_ACTION.items():
                 if re.search(regex, message.content.lower()):
-                    await function(message)
+                    await action(message)
         except discord.errors.ClientException as ce:
             if str(ce) == "Already connected to a voice channel.":
                 await message.channel.send(file=discord.File('pics/slowDownNeighbor.jpg'))
