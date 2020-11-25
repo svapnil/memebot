@@ -1,4 +1,4 @@
-from .config.bot import REGEX_TO_ACTION
+from config.bot import REGEX_TO_ACTION
 from discord import Client, File
 from discord.errors import ClientException
 import re
