@@ -1,6 +1,9 @@
 from cassiopeia.core.match import Participant
 from merakicommons.container import LazyList 
 
+def get_kda(p):
+   return p.stats.kda 
+
 class LeagueClientHelper:
     @staticmethod
     def display_summoner_info(player : Participant):
@@ -18,6 +21,10 @@ class LeagueClientHelper:
     @staticmethod
     def display_team_info(team : LazyList):
         info = ""
-        for player in team:
+        players = [p for p in team]
+        # sort by highest kda first, descending
+        players.sort(key=get_kda)
+        players.reverse()
+        for player in players:
             info += LeagueClientHelper.display_summoner_info(player)
         return info
