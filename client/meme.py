@@ -6,7 +6,7 @@ import asyncio
 
 class MemeClient:
     @staticmethod
-    async def play_meme(message: Message):
+    async def play_meme(message: Message) -> None:
         content = message.content
         for regex, meme in REGEX_TO_MEME.items():
             if re.search(regex, content.lower()):
@@ -28,7 +28,7 @@ class MemeClient:
                 break
 
     @staticmethod
-    async def display_meme_help(message: Message):
+    async def display_meme_help(message: Message) -> None:
         memehelp = "*Messages that will play audio clips:*\n\n"
         for regex,meme in REGEX_TO_MEME.items():
             title = meme.title

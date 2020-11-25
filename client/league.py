@@ -5,7 +5,7 @@ from cassiopeia import Summoner
 
 class LeagueClient:
     @staticmethod
-    async def display_game_summary(message : Message):
+    async def display_game_summary(message : Message) -> None:
         summoner_name = re.compile("/gamesummary (.*)").match(message.content).group(1)
         summoner = Summoner(name=summoner_name, region="NA")
         player_match_history = summoner.match_history()
@@ -25,7 +25,7 @@ class LeagueClient:
         print("Outputting Game Summary for: ",  summoner_name)  
             
     @staticmethod
-    async def display_best_champs(message : Message):
+    async def display_best_champs(message : Message) -> None:
         summoner_name = message.content[12:]
         bestchamps_message ="**Best champs for " + summoner_name + ":**\n"
         summoner = Summoner(name=summoner_name, region="NA")

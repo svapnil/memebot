@@ -6,7 +6,7 @@ def get_kda(p):
 
 class LeagueClientHelper:
     @staticmethod
-    def display_summoner_info(player : Participant):
+    def display_summoner_info(player : Participant) -> str:
         name = player.summoner.name
         kills = player.stats.kills
         deaths = player.stats.deaths
@@ -19,7 +19,7 @@ class LeagueClientHelper:
                                                         assists,
                                                         kda) + "\n" 
     @staticmethod
-    def display_team_info(team : LazyList):
+    def display_team_info(team : LazyList) -> str:
         info = ""
         players = [p for p in team]
         # sort by highest kda first, descending
