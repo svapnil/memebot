@@ -2,7 +2,7 @@ from models.meme import Meme
 
 REGEX_TO_MEME = {
    ".*(barber|holy smokes).*" : Meme(clip_url="clips/shoutoutbarber.mp3", title="Shoutout to my Barber"),
-   ".*big (dog|dawg).*" : Meme(clip_url="clips/whatupbigdawgs.mp3", title="Marcian's Intro"),
+   ".*big (dog|dawg).*" : Meme(clip_url="clips/whatupbigdawgs.mp3", title="Marcin's Intro"),
    ".*best friends?.*" : Meme(clip_url="clips/twoprettybestfriends.mp3", title="Two Pretty Best Friends"),
    ".*pog.*" : Meme(clip_url="clips/faker.mp3", title="Faker"),
    ".*penta.*" : Meme(clip_url="clips/penta.mp3", title="Pentakill"),
