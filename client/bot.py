@@ -31,13 +31,13 @@ class MemeBotClient(Client):
                 if re.search("whisper", message.content.lower()):
                     payload = message.content[7:]
                     tts = gTTS(text=payload, lang="en", slow=False)
-                    tts.save("_tts.mp3")
+                    tts.save("clips/_tts.mp3")
                     channel = self.voice_lookup.get(message.author.id)
                     if not channel:
                         await message.channel.send(f'Try rejoining the Discord channel and trying again my neighbor')             
                         return
                     voice = await channel.connect()
-                    audio = FFmpegPCMAudio("_tts.mp3")
+                    audio = FFmpegPCMAudio("clips/_tts.mp3")
                     voice.play(audio)
                     print(f'Playing whisper')
                     print(f'Payload: {payload}')
