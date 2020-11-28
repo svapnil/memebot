@@ -57,6 +57,10 @@ class MemeBotClient(Client):
                 await message.channel.send("I\'m kinda confused right now bruh")
                 print(f'Unknown ClientExceptionError: {ce}')
         except Exception as e:
-            await message.channel.send("I\'m kinda confused right now bruh")
-            print(f'Unknown Exception occured: {e}')
+            if str(e) == "The Riot API returned an error on the request. The received error was 403: \"Forbidden\"":
+                await message.channel.send("I think the Riot API may have expired!")
+                print(f'Riot API Exception occured: {e}')
+            else:
+                await message.channel.send("I\'m kinda confused right now bruh")
+                print(f'Unknown Exception occured: {e}')
         
