@@ -1,7 +1,7 @@
 from client.league import LeagueClient
 from client.meme import MemeClient
 
-REGEX_TO_ACTION = {
+GM_REGEX_TO_ACTION = {
     # display summary of most recent game
     "/gamesummary (.*)" : LeagueClient.display_game_summary,
     # display best champs for a champion

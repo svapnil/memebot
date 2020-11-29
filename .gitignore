@@ -1,2 +1,4 @@
 __pycache__
 .DS_STORE
+.vscode
+_tts.mp3
