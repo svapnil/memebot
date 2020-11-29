@@ -22,7 +22,7 @@ class LeagueClient:
 
         output += "```"
         await message.channel.send(output)
-        print("Outputting Game Summary for: ",  summoner_name)  
+        Logger.log("Outputting Game Summary for: ",  summoner_name)  
             
     @staticmethod
     async def display_best_champs(message : Message) -> None:
@@ -32,5 +32,5 @@ class LeagueClient:
         good_with = summoner.champion_masteries.filter(lambda cm: cm.level >=5)
         bestchamps_message += ", ".join([cm.champion.name for cm in good_with])
         await message.channel.send(bestchamps_message)
-        print("Outputting Best Champ")
+        Logger.log("Outputting Best Champ")
     

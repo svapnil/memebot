@@ -21,7 +21,7 @@ class MemeClient:
                 voice = await channel.connect()
                 audio = meme.audio
                 voice.play(audio)
-                print(f'Playing {regex}')
+                Logger.log(f'Playing {regex}')
                 while(voice.is_playing()):
                     await asyncio.sleep(1)
                 await voice.disconnect()
@@ -41,10 +41,10 @@ class MemeClient:
                 memehelp += f'{desc}\n'
             
         await message.channel.send(memehelp)
-        print("Outputting Meme Help")
+        Logger.log("Outputting Meme Help")
 
     @staticmethod
     async def display_whisper_help(message) -> None:
         whisper_help = "*DM the Memebot:*\n```whisper {message}```"
         await message.channel.send(whisper_help)
-        print("Outputting Whisper Help")
+        Logger.log("Outputting Whisper Help")
