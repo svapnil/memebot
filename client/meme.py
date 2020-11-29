@@ -42,3 +42,9 @@ class MemeClient:
             
         await message.channel.send(memehelp)
         print("Outputting Meme Help")
+
+    @staticmethod
+    async def display_whisper_help(message) -> None:
+        whisper_help = "*DM the Memebot:*\n```whisper {message}```"
+        await message.channel.send(whisper_help)
+        print("Outputting Whisper Help")

@@ -8,6 +8,8 @@ GM_REGEX_TO_ACTION = {
     "/bestchamps (.*)" : LeagueClient.display_best_champs,
     # display manual of all possible regexes
     "/memehelp" : MemeClient.display_meme_help,
+    # display manual for whisper help
+    "/whisperhelp" : MemeClient.display_whisper_help,
     # if all else fails, try to play a meme
     ".*" : MemeClient.play_meme
 }
