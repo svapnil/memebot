@@ -1,6 +1,7 @@
 from config.meme import REGEX_TO_MEME
 from discord import VoiceChannel, Message, Member
 import discord
+from utils.logger import Logger
 import re
 import asyncio
 
