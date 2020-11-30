@@ -6,6 +6,7 @@ import asyncio
 from utils.logger import Logger
 import re
 
+DEV_CHANNEL_ID = 779211097520865301
 class MemeBotClient(Client):
     def __init__(self):
         self.voice_lookup = {}    
@@ -33,9 +34,10 @@ class MemeBotClient(Client):
         voice = await channel.connect()
         audio = FFmpegPCMAudio("clips/_tts.mp3")
         voice.play(audio)
-        Logger.log(f'Playing whisper')
-        Logger.log(f'Payload: {payload}')
-        Logger.log(f'From: {message.author.name}')
+        log = f'Playing whisper\nPayload: **{payload}**\nFrom: **{message.author.name}**'
+        dev_channel = self.get_channel(DEV_CHANNEL_ID)
+        Logger.log(log)
+        await dev_channel.send(log)
         while(voice.is_playing()):
             await asyncio.sleep(1)
         await voice.disconnect()
