@@ -23,7 +23,7 @@ class LeagueClient:
 
         output += "```"
         await message.channel.send(output)
-        Logger.log("Outputting Game Summary for: ",  summoner_name)  
+        Logger.log('Outputting Game Summary for: {summoner_name}')  
             
     @staticmethod
     async def display_best_champs(message : Message) -> None:

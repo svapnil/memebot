@@ -12,7 +12,7 @@ class MemeBotClient(Client):
         super().__init__()
 
     async def on_ready(self):
-        Logger.log('Logged on as', self.user)
+        Logger.log(f'Logged on as {self.user}')
 
     async def on_voice_state_update(self, member, before, after):
         # don't respond to ourselves
