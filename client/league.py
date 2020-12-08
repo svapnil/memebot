@@ -60,7 +60,7 @@ class LeagueClient:
         
         output = "```"
         output += "{:>18} {:>14} {:>14} {:>15}".format("SUMMONER", 
-                                                                "KILLS", 
+                                                                "CHAMPION", 
                                                                 "SOLO RANK", 
                                                                 "FLEX RANK") + "\n"
         output += LeagueClientHelper.display_team_pregame_info(player_match_history.blue_team.participants)
