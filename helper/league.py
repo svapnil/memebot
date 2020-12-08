@@ -1,12 +1,9 @@
 from cassiopeia import Summoner
 from cassiopeia.core.match import Participant
 from merakicommons.container import LazyList 
-<<<<<<< HEAD
 from cassiopeia.data import GameMode
-
-=======
 from cassiopeia.data import Queue
->>>>>>> added command /pregamesummary that displays ranks and champs of user currently playing a match
+
 def get_kda(p):
    return p.stats.kda 
 
