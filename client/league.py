@@ -51,3 +51,23 @@ class LeagueClient:
                     
         await message.channel.send(f'**Last 5 Games for {summoner.name}:**```{output}```')
         Logger.log("Outputting Match History")
+
+    @staticmethod
+    async def display_game_pregame_summary(message : Message) -> None:
+        summoner_name = re.compile("/pregamesummary (.*)").match(message.content).group(1)
+        summoner = Summoner(name=summoner_name, region="NA")
+        player_match_history = summoner.current_match()
+        
+        output = "```"
+        output += "{:>18} {:>14} {:>14} {:>15}".format("SUMMONER", 
+                                                                "KILLS", 
+                                                                "SOLO RANK", 
+                                                                "FLEX RANK") + "\n"
+        output += LeagueClientHelper.display_team_pregame_info(player_match_history.blue_team.participants)
+        output += "----------------------------------------------------------------------------------\n"
+        output += LeagueClientHelper.display_team_pregame_info(player_match_history.red_team.participants)
+
+        output += "```"
+        await message.channel.send(output)
+        Logger.log('Outputting Game Summary for: {summoner_name}') 
+    
