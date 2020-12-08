@@ -10,6 +10,8 @@ GM_REGEX_TO_ACTION = {
     "/memehelp" : MemeClient.display_meme_help,
     # display manual for whisper help
     "/whisperhelp" : MemeClient.display_whisper_help,
+    # displays a pregame summary with ranks and champions of summoners
+    "/pregamesummary" : LeagueClient.display_game_pregame_summary,
     # if all else fails, try to play a meme
     ".*" : MemeClient.play_meme
 }
