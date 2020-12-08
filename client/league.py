@@ -35,3 +35,19 @@ class LeagueClient:
         await message.channel.send(bestchamps_message)
         Logger.log("Outputting Best Champ")
     
+    @staticmethod
+    async def display_match_history(message : Message) -> None:
+        summoner_name = message.content[14:]
+        summoner = Summoner(name=summoner_name, region="NA")
+        output = "{:>8} {:>14} {:>14} {:>14} {:>15} {:>16}".format(
+                                                    "MODE",
+                                                    "CHAMPION",
+                                                    "KILLS",
+                                                    "DEATHS",
+                                                    "ASSISTS",
+                                                    "KDA") + "\n" 
+        
+        output +=  LeagueClientHelper.display_match_history_info(summoner, summoner.match_history[:5])
+                    
+        await message.channel.send(f'**Last 5 Games for {summoner.name}:**```{output}```')
+        Logger.log("Outputting Match History")
