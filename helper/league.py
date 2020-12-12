@@ -2,6 +2,7 @@ from cassiopeia import Summoner
 from cassiopeia.core.match import Participant
 from merakicommons.container import LazyList 
 from cassiopeia.data import GameMode
+from cassiopeia.data import Queue
 
 def get_kda(p):
    return p.stats.kda 
@@ -54,3 +55,35 @@ class LeagueClientHelper:
                                                                 kda) + "\n" 
         return output
         
+    
+    @staticmethod
+    def display_summoner_pregame_info(player : Participant) -> str:
+        name = player.summoner.name
+        champion = player.champion.name
+        soloRank = ""
+
+        flexRank = ""
+        try:
+            rank = [player.summoner.ranks[Queue.ranked_solo_fives].tier][0]
+            divison = [player.summoner.ranks[Queue.ranked_solo_fives].division][0]
+            soloRank = str(rank) + " " + str(divison)
+        except:
+            soloRank = "Not Ranked"
+        try:
+            rank = [player.summoner.ranks[Queue.ranked_flex_fives].tier][0]
+            divison = [player.summoner.ranks[Queue.ranked_flex_fives].division][0]
+            flexRank = str(rank) + " " + str(divison)
+        except:
+            flexRank = "Not Ranked"
+
+        return "{:>18} {:>14} {:>14} {:>15}".format(name,
+                                            champion,
+                                            soloRank,
+                                            flexRank) + "\n" 
+    @staticmethod
+    def display_team_pregame_info(team : LazyList) -> str:
+        info = ""
+        players = team
+        for player in players:
+            info += LeagueClientHelper.display_summoner_pregame_info(player)
+        return info
