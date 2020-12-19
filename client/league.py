@@ -39,7 +39,7 @@ class LeagueClient:
     async def display_match_history(message : Message) -> None:
         summoner_name = message.content[14:]
         summoner = Summoner(name=summoner_name, region="NA")
-        output = "{:>8} {:>14} {:>14} {:>14} {:>15} {:>16} {:>6}".format(
+        output = "{:>8} {:>14} {:>10} {:>10} {:>10} {:>6} {:>6}".format(
                                                     "MODE",
                                                     "CHAMPION",
                                                     "KILLS",
