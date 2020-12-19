@@ -46,13 +46,16 @@ class LeagueClientHelper:
                     deaths = player.stats.deaths
                     assists = player.stats.assists
                     kda = str(round(player.stats.kda, 2))
-                    output += "{:>8} {:>14} {:>14} {:>14} {:>15} {:>16}".format(
+                    is_win = player.team.win
+                    win_output = "WIN" if is_win else "LOSS"
+                    output += "{:>8} {:>14} {:>14} {:>14} {:>15} {:>16} {:>6}".format(
                                                                 format_game_mode(match.mode),
                                                                 player.champion.name,
                                                                 kills,
                                                                 deaths,
                                                                 assists,
-                                                                kda) + "\n" 
+                                                                kda,
+                                                                win_output) + "\n" 
         return output
         
     
