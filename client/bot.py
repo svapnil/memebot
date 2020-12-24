@@ -1,4 +1,4 @@
-from config.bot import GM_REGEX_TO_ACTION
+from config.bot_config import GM_REGEX_TO_ACTION
 from discord import Client, File, DMChannel, FFmpegPCMAudio
 from discord.errors import ClientException
 from gtts import gTTS

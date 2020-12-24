@@ -1,5 +1,5 @@
 from discord import Message
-from helper.league import LeagueClientHelper
+from helper.league_helper import LeagueClientHelper
 from utils.logger import Logger
 import re
 from cassiopeia import Summoner

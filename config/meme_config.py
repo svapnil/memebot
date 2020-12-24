@@ -1,4 +1,4 @@
-from models.meme import Meme
+from models.meme_model import Meme
 
 REGEX_TO_MEME = {
    ".*(barber|holy smokes).*" : Meme(clip_url="clips/shoutoutbarber.mp3", title="Shoutout to my Barber"),
