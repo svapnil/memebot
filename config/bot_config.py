@@ -17,5 +17,8 @@ GM_REGEX_TO_ACTION = {
     # saves a meme to mp3
     "/play\s([a-zA-Z0-9_:/.?=]+)" : MemeClient.play_youtube,
     # if all else fails, try to play a meme
-    ".*" : MemeClient.play_meme
+    ".*" : MemeClient.play_meme,
+    # store a meme to mp3
+    "/store\s([a-zA-Z0-9_:/.?=]+)\s([a-zA-Z0-9_:/.?=]+)" : MemeClient.store_youtube,
+
 }

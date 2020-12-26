@@ -5,6 +5,9 @@ from utils.logger import Logger
 import re
 import subprocess
 import asyncio
+import boto3
+import os
+
 
 class MemeClient:
     @staticmethod
@@ -73,3 +76,33 @@ class MemeClient:
         while(voice.is_playing()):
             await asyncio.sleep(1)
         await voice.disconnect()
+
+    @staticmethod
+    async def store_youtube(message: Message) -> None:
+        MemeClient.upload_file("clips/awshit.mp3","memebot")
+
+        content = message.content 
+        match = re.match("/store\s([a-zA-Z0-9_:/.?=]+)\s([a-zA-Z0-9_:/.?=]+)", content)
+
+        youtube_link = match[2]
+        download_command = f'youtube-dl --extract-audio --audio-format mp3 {youtube_link} -o clips/{match[1]}.%(ext)s'
+        subprocess.run(download_command.split())
+
+        MemeClient.upload_file("clips/"+match[1]+".mp3","memebot")
+
+        os.remove(match[1] +".mp3")
+
+    @staticmethod
+    def upload_file(file_name, bucket, object_name=None):
+   
+
+        # If S3 object_name was not specified, use file_name
+        if object_name is None:
+            object_name = file_name
+
+        # Upload the file
+        s3_client = boto3.client('s3')
+        
+        response = s3_client.upload_file(file_name, bucket, object_name)
+        
+    
