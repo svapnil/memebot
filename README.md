@@ -32,6 +32,8 @@ You will need two environment variables:
 
 `brew install ffmpeg`
 
+`brew install youtube-dl`
+
 `pip3 install cassiopeia`
 
 
@@ -48,6 +50,11 @@ Navigate to you Python folder and run this command:
 Follow Instructions here to install `ffmpeg`:
 
 https://maskaravivek.medium.com/how-to-install-ffmpeg-on-ec2-running-amazon-linux-451e4a8e2694
+
+Install `youtube-dl`:
+
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
 
 `pip3 install cassiopeia`
 

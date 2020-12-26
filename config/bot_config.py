@@ -14,6 +14,8 @@ GM_REGEX_TO_ACTION = {
     "/whisperhelp" : MemeClient.display_whisper_help,
     # displays a pregame summary with ranks and champions of summoners
     "/pregamesummary" : LeagueClient.display_game_pregame_summary,
+    # saves a meme to mp3
+    "/play\s([a-zA-Z0-9_:/.?=]+)" : MemeClient.play_youtube,
     # if all else fails, try to play a meme
     ".*" : MemeClient.play_meme
 }
