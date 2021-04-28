@@ -14,5 +14,6 @@ REGEX_TO_MEME = {
    ".*calm down.*" : Meme(clip_url="clips/calm_down.mp3", title="Calm Down"),
    ".*pierre.*" : Meme(clip_url="clips/yo-pierre.mp3", title="Yo Pierre"),
    ".*perfect.*" : Meme(clip_url="clips/perfect.mp3", title="Perfect"),
-   ".*pirate.*" : Meme(clip_url="clips/pirate.mp3", title="You Are A Pirate")
+   ".*pirate.*" : Meme(clip_url="clips/pirate.mp3", title="You Are A Pirate"),
+   ".*amazon.*" : Meme(clip_url="clips/amazon.mp3", title="I am pleased to announce I have accepted an offer")
 }
