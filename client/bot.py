@@ -24,7 +24,7 @@ class MemeBotClient(Client):
         return
 
     async def whisper(self, message):
-        payload = message.content[7:]
+        payload = message.content[9:]
         tts = gTTS(text=payload, lang="en", slow=False)
         tts.save("clips/_tts.mp3")
         channel = self.voice_lookup.get(message.author.id)

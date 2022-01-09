@@ -68,5 +68,20 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 `pm2 start main.py -interprete python3`
 
+### Running Application on Replit
+
+Over time, running an AWS instance gets expensive. 
+
+Luckily, replit is free for public repos and the CEO himself annouced support for Discord Music Bots: https://replit.com/talk/announcements/Discord-Music-Bots-Native-Support/50173 . 
+
+Instructions to launch:
+
+```
+pip3 install discord && 
+pip3 install cassiopeia &&
+pip3 install gtts &&
+python3 main.py
+```
+
 
 

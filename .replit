@@ -1,0 +1,2 @@
+language = "bash"
+run = "python3 -m pip install -U \"discord.py[voice]\" && pip3 install discord && pip3 install cassiopeia && pip3 install gtts && python3 main.py"
